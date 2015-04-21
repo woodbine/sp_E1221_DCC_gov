@@ -20,9 +20,7 @@ def convert_mth_strings ( mth_string ):
 
 # pull down the content from the webpage
 html = urllib2.urlopen(url)
-print html
 soup = BeautifulSoup(html)
-print soup
 # find all entries with the required class
 pageLinks = soup.findAll('a', href=True)
 
