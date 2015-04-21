@@ -25,10 +25,8 @@ soup = BeautifulSoup(html)
 pageLinks = soup.findAll('a', href=True)
 
 for pageLink in pageLinks:
-	pageUrl = 'http://www.dorsetforyou.com' + pageLink['href']
+	pageUrl = pageLink['href']
 	if 'Expenditure' in pageUrl:
-		print pageUrl
-		'''
 		html2 = urllib2.urlopen(pageUrl)
 		soup2 = BeautifulSoup(html2)
 		
@@ -49,4 +47,3 @@ for pageLink in pageLinks:
 				todays_date = str(datetime.now())
 				scraperwiki.sqlite.save(unique_keys=['l'], data={"l": url, "f": filename, "d": todays_date })
 				print filename
-		'''
