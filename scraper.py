@@ -25,7 +25,7 @@ soup = BeautifulSoup(html)
 pageLinks = soup.findAll('a', href=True)
 
 for pageLink in pageLinks:
-	pageUrl = 'http://www.dorsetforyou.com/' + pageLink['href']
+	pageUrl = 'http://www.dorsetforyou.com' + pageLink['href']
 	if 'Expenditure' in pageUrl:
 		html2 = urllib2.urlopen(pageUrl)
 		soup2 = BeautifulSoup(html2)
