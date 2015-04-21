@@ -29,11 +29,7 @@ for pageLink in pageLinks:
 	if 'Expenditure' in pageUrl:
 		html2 = urllib2.urlopen(pageUrl)
 		soup2 = BeautifulSoup(html2)
-		yrBlock = soup2.find('div',{'id':'download'})
-		print yrBlock
-		'''
-		fileLinks = yrBlock.findAll('a',href=True)
-		
+		fileLinks = soup2.findAll('a',href=True)
 		for fileLink in fileLinks:
 			url = 'http://www.dorsetforyou.com/' + fileLink['href']
 			if '.csv' in url:
@@ -48,4 +44,3 @@ for pageLink in pageLinks:
 				todays_date = str(datetime.now())
 				scraperwiki.sqlite.save(unique_keys=['l'], data={"l": url, "f": filename, "d": todays_date })
 				print filename
-		'''
