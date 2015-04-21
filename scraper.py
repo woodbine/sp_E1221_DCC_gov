@@ -31,6 +31,8 @@ for pageLink in pageLinks:
 		soup2 = BeautifulSoup(html2)
 		
 		yrBlock = soup2.find('div',{'id':'download'})
+		print yrBlock
+		
 		fileLinks = yrBlock.findAll('a',href=True)
 		
 		for fileLink in fileLinks:
