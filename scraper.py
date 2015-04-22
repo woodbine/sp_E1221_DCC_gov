@@ -43,8 +43,8 @@ for pageLink in pageLinks:
 				title = fileLink.contents[0]
 				title = title.encode('utf8').strip().replace("\n", " ").replace("\r", " ").replace("\t", " ")
 				# create the right strings for the new filename
-				csvYr = title.split(' ')[8]
-				csvMth = title.split(' ')[7][:3]
+				csvYr = title.split(' ')[7]
+				csvMth = title.split(' ')[6][:3]
 				csvMth = csvMth.upper()
 				csvMth = convert_mth_strings(csvMth);
 				filename = entity_id + "_" + csvYr + "_" + csvMth + ".csv"
