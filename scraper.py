@@ -40,7 +40,7 @@ for pageLink in pageLinks:
 			url = 'http://www.dorsetforyou.com/' + fileLink['href']
 			if '.csv' in url:
 				#  clean up the onclick data
-				title = link.contents[0]
+				title = filelink.contents[0]
 				# create the right strings for the new filename
 				csvYr = title.split(' ')[-1]
 				csvMth = title.split(' ')[-2][:3]
