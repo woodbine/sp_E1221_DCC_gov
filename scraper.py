@@ -41,9 +41,7 @@ for pageLink in pageLinks:
 			if '.csv' in url:
 				#  clean up the onclick data
 				title = fileLink.contents[0]
-				title = title.encode('utf8').strip().replace("\n", "").replace("\r", "").replace("\t", "")
-				print title
-				'''
+				title = title.encode('utf8').strip().replace("\n", " ").replace("\r", " ").replace("\t", " ")
 				# create the right strings for the new filename
 				csvYr = title.split(' ')[8]
 				csvMth = title.split(' ')[7][:3]
@@ -53,4 +51,3 @@ for pageLink in pageLinks:
 				todays_date = str(datetime.now())
 				scraperwiki.sqlite.save(unique_keys=['l'], data={"l": url, "f": filename, "d": todays_date })
 				print filename
-				'''
