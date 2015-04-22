@@ -24,11 +24,12 @@ def convert_mth_strings ( mth_string ):
 html = urllib2.urlopen(url)
 soup = BeautifulSoup(html)
 # find all entries with the required class
-pageLinks = soup.findAll('a', href=True)
+block = soup.find('div',{'id':'list'})
+pageLinks = block.findAll('a', href=True)
 
 for pageLink in pageLinks:
 	pageUrl = pageLink['href']
-	if 'Expenditure' in pageUrl:
+	if 'Dorset-County-Council---Expenditure-over-500---201' in pageUrl:
 		parsed_link = urlparse.urlsplit(pageUrl.encode('utf8'))
 		parsed_link = parsed_link._replace(path=urllib.quote(parsed_link.path))
 		encoded_link = parsed_link.geturl()
