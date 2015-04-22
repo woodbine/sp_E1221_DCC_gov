@@ -28,7 +28,7 @@ block = soup.find('div',{'id':'list'})
 pageLinks = block.findAll('a', href=True)
 
 for pageLink in pageLinks:
-	pageUrl = pageLink['href']
+	pageUrl = 'https://www.dorsetforyou.com' + pageLink['href']
 	if 'Dorset-County-Council---Expenditure-over-500---201' in pageUrl:
 		parsed_link = urlparse.urlsplit(pageUrl.encode('utf8'))
 		parsed_link = parsed_link._replace(path=urllib.quote(parsed_link.path))
