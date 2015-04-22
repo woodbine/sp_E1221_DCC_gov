@@ -42,8 +42,8 @@ for pageLink in pageLinks:
 				#  clean up the onclick data
 				title = fileLink.contents[0].strip()
 				# create the right strings for the new filename
-				csvYr = title.split(' ')[-1]
-				csvMth = title.split(' ')[-2][:3]
+				csvYr = title.split(' ')[8]
+				csvMth = title.split(' ')[7][:3]
 				csvMth = csvMth.upper()
 				csvMth = convert_mth_strings(csvMth);
 				filename = entity_id + "_" + csvYr + "_" + csvMth + ".csv"
