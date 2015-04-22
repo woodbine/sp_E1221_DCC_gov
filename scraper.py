@@ -27,7 +27,10 @@ pageLinks = soup.findAll('a', href=True)
 for pageLink in pageLinks:
 	pageUrl = pageLink['href']
 	if 'Expenditure' in pageUrl:
-		html2 = urllib2.urlopen(pageUrl)
+		parsed_link = urlparse.urlsplit(pageUrl.encode('utf8'))
+		parsed_link = parsed_link._replace(path=urllib.quote(parsed_link.path))
+		encoded_link = parsed_link.geturl()
+	  	html2 = urllib2.urlopen(encoded_link)
 		soup2 = BeautifulSoup(html2)
 		fileLinks = soup2.findAll('a',href=True)
 		for fileLink in fileLinks:
