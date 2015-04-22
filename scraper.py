@@ -32,6 +32,8 @@ for pageLink in pageLinks:
 		parsed_link = urlparse.urlsplit(pageUrl.encode('utf8'))
 		parsed_link = parsed_link._replace(path=urllib.quote(parsed_link.path))
 		encoded_link = parsed_link.geturl()
+		print encoded_link
+		'''
 	  	html2 = urllib2.urlopen(encoded_link)
 		soup2 = BeautifulSoup(html2)
 		fileLinks = soup2.findAll('a',href=True)
@@ -49,3 +51,4 @@ for pageLink in pageLinks:
 				todays_date = str(datetime.now())
 				scraperwiki.sqlite.save(unique_keys=['l'], data={"l": url, "f": filename, "d": todays_date })
 				print filename
+		'''
