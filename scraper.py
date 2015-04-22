@@ -41,7 +41,7 @@ for pageLink in pageLinks:
 			if '.csv' in url:
 				#  clean up the onclick data
 				title = fileLink.contents[0]
-				title = title.encode('utf8').strip().rstrip('\r\n')
+				title = title.encode('utf8').strip().strip('\r\n')
 				print title
 				'''
 				# create the right strings for the new filename
